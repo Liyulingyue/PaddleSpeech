@@ -1,4 +1,4 @@
-FROM registry.baidubce.com/paddlepaddle/paddle:2.2.2
+FROM registry.baidubce.com/paddlepaddle/paddle:3.0.0b1
 LABEL maintainer="paddlesl@baidu.com"
 
 RUN apt-get update \
