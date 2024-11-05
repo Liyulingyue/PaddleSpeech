@@ -287,8 +287,8 @@ class SSLExecutor(BaseExecutor):
                 f"we will use the {model_type} like model to extract audio feature."
             )
             try:
-                out_feature = self.model(audio[:, :, 0])
-                self._outputs["result"] = out_feature[0]
+                out_feature = self.model.extract_features(audio[:, :, 0])
+                self._outputs["result"] = out_feature
             except Exception as e:
                 logger.exception(e)
 
