@@ -466,7 +466,8 @@ class SSLExecutor(BaseExecutor):
             "rtf": rtf,
             "device": device
         }
-        if self.last_call_params is not None and self.last_call_params != current_call_params and hasattr(self, 'model'):
+        if self.last_call_params is not None and self.last_call_params != current_call_params and hasattr(
+                self, 'model'):
             del self.model
         self.last_call_params = current_call_params
 
