@@ -178,7 +178,7 @@ This stage is to transform dygraph to static graph.
 If you already have a dynamic graph model, you can run this script:
 ```bash
 source path.sh
-./local/export.sh deepspeech2.yaml exp/deepspeech2/checkpoints/avg_1 exp/deepspeech2/checkpoints/avg_1.jit offline
+./local/export.sh conf/deepspeech2.yaml exp/deepspeech2/checkpoints/avg_1 exp/deepspeech2/checkpoints/avg_1.jit
 ```
 ## Stage 5: Static graph Model Testing
 Similar to stage 3, the static graph model can also be tested.
@@ -190,7 +190,7 @@ Similar to stage 3, the static graph model can also be tested.
 ```
 If you already have exported the static graph, you can run this script:
 ```bash
-CUDA_VISIBLE_DEVICES= ./local/test_export.sh conf/deepspeech2.yaml exp/deepspeech2/checkpoints/avg_1.jit offline
+CUDA_VISIBLE_DEVICES= ./local/test_export.sh conf/deepspeech2.yaml conf/tuning/decode.yaml exp/deepspeech2/checkpoints/avg_1.jit
 ```
 ## Stage 6: Single Audio File Inference
 In some situations, you want to use the trained model to do the inference for the single audio file. You can use stage  5. The code is shown below
