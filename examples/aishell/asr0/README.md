@@ -178,7 +178,7 @@ This stage is to transform dygraph to static graph.
 If you already have a dynamic graph model, you can run this script:
 ```bash
 source path.sh
-./local/export.sh conf/deepspeech2.yaml exp/deepspeech2/checkpoints/avg_1 exp/deepspeech2/checkpoints/avg_1.jit
+./local/export.sh conf/deepspeech2.yaml exp/deepspeech2/checkpoints/avg_10 exp/deepspeech2/checkpoints/avg_10.jit
 ```
 ## Stage 5: Static graph Model Testing
 Similar to stage 3, the static graph model can also be tested.
