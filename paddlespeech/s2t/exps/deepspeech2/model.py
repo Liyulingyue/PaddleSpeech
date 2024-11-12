@@ -338,7 +338,9 @@ class DeepSpeech2Tester(DeepSpeech2Trainer):
         try:
             logger.info(f"Export code: {static_model.forward.code}")
         except:
-            logger.info(f"Fail to print Export code, static_model.forward.code can not be run.")
+            logger.info(
+                f"Fail to print Export code, static_model.forward.code can not be run."
+            )
         paddle.jit.save(static_model, self.args.export_path)
 
 
