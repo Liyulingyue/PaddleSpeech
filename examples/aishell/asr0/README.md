@@ -148,7 +148,7 @@ source path.sh
 bash ./local/data.sh
 CUDA_VISIBLE_DEVICES= ./local/train.sh conf/deepspeech2.yaml deepspeech2
 avg.sh best exp/deepspeech2/checkpoints 1
-CUDA_VISIBLE_DEVICES= ./local/test.sh conf/deepspeech2.yaml exp/deepspeech2/checkpoints/avg_1
+CUDA_VISIBLE_DEVICES= ./local/test.sh conf/deepspeech2.yaml conf/tuning/decode.yaml exp/deepspeech2/checkpoints/avg_1
 ```
 ## Pretrained Model
 You can get the pretrained models from [this](../../../docs/source/released_model.md).
