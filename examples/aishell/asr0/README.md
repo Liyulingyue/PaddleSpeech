@@ -103,12 +103,19 @@ If you want to train the model, you can use the script below to execute stage 0 
 ```bash
 bash run.sh --stage 0 --stop_stage 1
 ```
-or you can run these scripts in the command line (only use CPU).
+Or you can run these scripts in the command line (only use CPU).
 ```bash
 source path.sh
 bash ./local/data.sh
 CUDA_VISIBLE_DEVICES= ./local/train.sh conf/deepspeech2.yaml deepspeech2
 ```
+If you want to use GPU, you can run these scripts in the command line (suppose you have only 1 GPU).
+```bash
+source path.sh
+bash ./local/data.sh
+CUDA_VISIBLE_DEVICES=0 ./local/train.sh conf/deepspeech2.yaml deepspeech2
+```
+
 ## Stage 2:  Top-k Models Averaging
 After training the model,  we need to get the final model for testing and inference. In every epoch, the model checkpoint is saved, so we can choose the best model from them based on the validation loss or we can sort them and average the parameters of the top-k models to get the final model.  We can use stage 2 to do this, and the code is shown below:
 ```bash
@@ -148,7 +155,7 @@ source path.sh
 bash ./local/data.sh
 CUDA_VISIBLE_DEVICES= ./local/train.sh conf/deepspeech2.yaml deepspeech2
 avg.sh best exp/deepspeech2/checkpoints 1
-CUDA_VISIBLE_DEVICES= ./local/test.sh conf/deepspeech2.yaml conf/tuning/decode.yaml exp/deepspeech2/checkpoints/avg_1
+CUDA_VISIBLE_DEVICES= ./local/test.sh conf/deepspeech2.yaml conf/tuning/decode.yaml exp/deepspeech2/checkpoints/avg_10
 ```
 ## Pretrained Model
 You can get the pretrained models from [this](../../../docs/source/released_model.md).
@@ -178,7 +185,7 @@ This stage is to transform dygraph to static graph.
 If you already have a dynamic graph model, you can run this script:
 ```bash
 source path.sh
-./local/export.sh conf/deepspeech2.yaml exp/deepspeech2/checkpoints/avg_1 exp/deepspeech2/checkpoints/avg_1.jit
+./local/export.sh conf/deepspeech2.yaml exp/deepspeech2/checkpoints/avg_10 exp/deepspeech2/checkpoints/avg_10.jit
 ```
 ## Stage 5: Static graph Model Testing
 Similar to stage 3, the static graph model can also be tested.
@@ -190,7 +197,7 @@ Similar to stage 3, the static graph model can also be tested.
 ```
 If you already have exported the static graph, you can run this script:
 ```bash
-CUDA_VISIBLE_DEVICES= ./local/test_export.sh conf/deepspeech2.yaml conf/tuning/decode.yaml exp/deepspeech2/checkpoints/avg_1.jit
+CUDA_VISIBLE_DEVICES= ./local/test_export.sh conf/deepspeech2.yaml conf/tuning/decode.yaml exp/deepspeech2/checkpoints/avg_10.jit
 ```
 ## Stage 6: Single Audio File Inference
 In some situations, you want to use the trained model to do the inference for the single audio file. You can use stage  5. The code is shown below
