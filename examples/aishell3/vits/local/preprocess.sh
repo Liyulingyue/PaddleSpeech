@@ -21,7 +21,7 @@ if [ ${stage} -le 1 ] && [ ${stop_stage} -ge 1 ]; then
     echo "Extract features ..."
     python3 ${BIN_DIR}/preprocess.py \
         --dataset=aishell3 \
-        --rootdir=~/datasets/data_aishell3/ \
+        --rootdir=~/dataset/data_aishell3/ \
         --dumpdir=dump \
         --dur-file=durations.txt \
         --config=${config_path} \
