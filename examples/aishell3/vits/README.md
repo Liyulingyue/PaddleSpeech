@@ -6,14 +6,14 @@ AISHELL-3 is a large-scale and high-fidelity multi-speaker Mandarin speech corpu
 We use AISHELL-3 to train a multi-speaker VITS model here.
 ## Dataset
 ### Download and Extract
-Download AISHELL-3 from it's [Official Website](http://www.aishelltech.com/aishell_3) and extract it to `~/dataset`. Then the dataset is in the directory `~/dataset/data_aishell3`.
+Download AISHELL-3 from it's [Official Website](http://www.aishelltech.com/aishell_3) and extract it to `~/dataset`. Then the dataset is in the directory `~/dataset/aishell3`.
 
 ### Get MFA Result and Extract
 We use [MFA2.x](https://github.com/MontrealCorpusTools/Montreal-Forced-Aligner) to get phonemes for VITS, the durations of MFA are not needed here.
 You can download from here [aishell3_alignment_tone.tar.gz](https://paddlespeech.bj.bcebos.com/MFA/AISHELL-3/with_tone/aishell3_alignment_tone.tar.gz), or train your MFA model reference to [mfa example](https://github.com/PaddlePaddle/PaddleSpeech/tree/develop/examples/other/mfa) (use MFA1.x now) of our repo.
 
 ## Get Started
-Assume the path to the dataset is `~/dataset/data_aishell3`.
+Assume the path to the dataset is `~/dataset/aishell3`.
 Assume the path to the MFA result of AISHELL-3 is `./aishell3_alignment_tone`.
 Run the command below to
 1. **source path**.
