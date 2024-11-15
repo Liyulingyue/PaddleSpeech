@@ -3,7 +3,7 @@
 * asr0 - deepspeech2 Streaming/Non-Streaming
 * asr1 - transformer/conformer Streaming/Non-Streaming
 * ~~asr2 - transformer/conformer Streaming/Non-Streaming with Kaldi feature~~
-* asr3 - Wav2vec2 Non-Streaming
+* asr3 - wav2vec2 Non-Streaming
 
 
 ## Data
