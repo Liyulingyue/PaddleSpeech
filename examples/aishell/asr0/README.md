@@ -210,7 +210,7 @@ if [ ${stage} -le 6 ] && [ ${stop_stage} -ge 6 ]; then
 you can train the model by yourself, or you can download the pretrained model by the script below:
 ```bash
 wget https://paddlespeech.bj.bcebos.com/s2t/aishell/asr0/asr0_deepspeech2_offline_aishell_ckpt_1.0.1.model.tar.gz
-tar asr0_deepspeech2_offline_aishell_ckpt_1.0.1.model.tar.gz
+tar xzvf asr0_deepspeech2_offline_aishell_ckpt_1.0.1.model.tar.gz
 ```
 You can download the audio demo:
 ```bash
