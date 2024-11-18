@@ -51,7 +51,7 @@ You can set the local variables (except `ckpt`)  when you use the `run.sh`
 
 For example, you can set the `gpus` and `avg_num` when you use the command line.:
 ```bash
-bash run.sh --gpus 0,1 --avg_num 20
+bash run.sh --gpus 0,1 --avg_num 1
 ```
 ## Stage 0: Data processing
 To use this example, you need to process data firstly and you can use stage 0 in the `run.sh` to do this. The code is shown below:
