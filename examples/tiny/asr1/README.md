@@ -26,7 +26,6 @@ The document below will describe the scripts in ```run.sh```in detail.
 The path.sh contains the environment variables. 
 ```bash
 . ./path.sh
-. ./cmd.sh
 ```
 This script needs to be run first. And another script is also needed:
 ```bash
