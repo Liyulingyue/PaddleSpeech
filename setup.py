@@ -66,6 +66,7 @@ base = [
     "pyyaml",
     "resampy",
     "sacrebleu",
+    "soundfile",
     "textgrid",
     "timer",
     "ToJyutping==0.2.1",
