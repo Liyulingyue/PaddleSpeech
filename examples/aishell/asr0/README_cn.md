@@ -1,4 +1,4 @@
-# 使用Aishell数据集训练DeepSpeech2的离线/在线ASR模型
+# 使用 Aishell 数据集训练 DeepSpeech2 的离线/在线ASR模型
 此示例包含用于使用[Aishell数据集](http://www.openslr.org/resources/33)训练DeepSpeech2离线或在线模型的代码。
 ## 概述
 您需要的所有脚本都在`run.sh`中。`run.sh`中有几个阶段，每个阶段都有其功能。
