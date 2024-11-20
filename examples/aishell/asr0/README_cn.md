@@ -1,4 +1,4 @@
-# 使用 Aishell 数据集训练 DeepSpeech2 的离线/在线ASR模型
+# 使用 Aishell 数据集训练 DeepSpeech2 的离线/在线 ASR 模型
 此示例包含用于使用[Aishell数据集](http://www.openslr.org/resources/33)训练DeepSpeech2离线或在线模型的代码。
 ## 概述
 您需要的所有脚本都在`run.sh`中。`run.sh`中有几个阶段，每个阶段都有其功能。
@@ -26,9 +26,8 @@ bash run.sh --stage 0 --stop_stage 0
 `path.sh`包含环境变量。
 ```bash
 source path.sh
-```
-需要先运行此脚本。
-另一个脚本也需要运行：
+运行程序前需要先执行此脚本。
+另一个同样需要执行的脚本：
 ```bash
 source ${MAIN_ROOT}/utils/parse_options.sh
 ```
@@ -39,7 +38,7 @@ source ${MAIN_ROOT}/utils/parse_options.sh
 `stage`表示您想在实验中从哪个阶段开始。
 `stop_stage`表示您想在实验中结束于哪个阶段。
 `conf_path`表示模型的配置路径。
-`avg_num`表示要平均的前k个最佳模型的数量，以获得最终模型。
+`avg_num`表示要平均的最好的 k 个最佳模型的数量，以获得最终模型。
 `model_type`表示模型类型：离线或在线
 `audio_file`表示在阶段6中您想进行推理的单个文件的路径。
 `ckpt`表示模型的检查点前缀，例如"deepspeech2"
