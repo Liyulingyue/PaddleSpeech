@@ -348,7 +348,9 @@ def get_random_segments(
     """
     b, c, t = paddle.shape(x)
     max_start_idx = x_lengths - segment_size
-    start_idxs = paddle.cast(paddle.rand([b]) * max_start_idx, 'int64')
+    rand_number = paddle.rand([b])
+    start_idxs = paddle.cast(rand_number *
+                             max_start_idx.astype(rand_number.dtype), 'int64')
     segments = get_segments(x, start_idxs, segment_size)
 
     return segments, start_idxs
