@@ -203,7 +203,6 @@ def main():
         sentences, speaker_set = get_phn_dur(dur_file)
         merge_silence(sentences)
 
-    # split data into 3 sections
     if args.dataset == "baker":
         wav_files = sorted(list((rootdir / "Wave").rglob("*.wav")))
         # split data into 3 sections, the max number of dev/test is 10% or 100
