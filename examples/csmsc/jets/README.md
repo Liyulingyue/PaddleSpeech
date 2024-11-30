@@ -8,9 +8,12 @@ Download CSMSC from it's [official website](https://test.data-baker.com/data/ind
 The structure of the folder is listed below.
 
 ```text
-datasets/BZNSYP
-└── Wave
-    └── .wav files
+└─ Wave
+    └─ .wav files (audio speech)
+└─ PhoneLabeling
+    └─ .interval files (alignment between phoneme and duration)
+└─ ProsodyLabeling
+   └─ 000001-010000.txt (text with prosodic by pinyin)
 ```
 
 ### Get MFA Result and Extract
