@@ -181,6 +181,10 @@ def make_pad_mask(lengths, xs=None, length_dim=-1):
     if length_dim == 0:
         raise ValueError("length_dim cannot be 0: {}".format(length_dim))
 
+    # check if ilens is 0-dim tensor, if so, add a dimension
+    if lengths.ndim == 0:
+        lengths = lengths.unsqueeze(0)
+
     bs = paddle.shape(lengths)
     if xs is None:
         maxlen = paddle.cast(lengths.max(), dtype=bs.dtype)
@@ -348,7 +352,9 @@ def get_random_segments(
     """
     b, c, t = paddle.shape(x)
     max_start_idx = x_lengths - segment_size
-    start_idxs = paddle.cast(paddle.rand([b]) * max_start_idx, 'int64')
+    rand_number = paddle.rand([b])
+    start_idxs = paddle.cast(rand_number *
+                             max_start_idx.astype(rand_number.dtype), 'int64')
     segments = get_segments(x, start_idxs, segment_size)
 
     return segments, start_idxs
