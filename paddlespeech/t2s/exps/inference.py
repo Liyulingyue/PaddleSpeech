@@ -127,11 +127,8 @@ def main():
 
     paddle.set_device(args.device)
 
-    # model_suffix
-    if os.path.exists(args.am + ".json"):
-        model_suffix = ".json"
-    else:
-        model_suffix = ".pdmodel"
+    # set model_suffix
+    model_suffix = ".json" if os.path.exists(args.am + ".json") else ".pdmodel"
 
     # frontend
     frontend = get_frontend(
