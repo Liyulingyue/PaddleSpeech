@@ -1115,7 +1115,8 @@ class MLMLoss(nn.Layer):
                     paddle.reshape(xs_pad, (-1, self.odim))),
                 axis=-1)
         mlm_loss = paddle.sum((loss * paddle.reshape(
-            mlm_loss_pos, [-1]))) / paddle.sum((mlm_loss_pos) + 1e-10)
+            mlm_loss_pos,
+            [-1]).astype(loss.dtype))) / paddle.sum((mlm_loss_pos) + 1e-10)
 
         text_mlm_loss = None
 
