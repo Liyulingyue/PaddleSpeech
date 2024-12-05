@@ -23,6 +23,7 @@ import paddle
 from paddle import distributed as dist
 from paddle import inference
 
+import paddlespeech.utils
 from paddlespeech.audio.text.text_featurizer import TextFeaturizer
 from paddlespeech.s2t.io.dataloader import BatchDataLoader
 from paddlespeech.s2t.models.ds2 import DeepSpeech2InferModel
@@ -629,9 +630,17 @@ class DeepSpeech2ExportTester(DeepSpeech2Tester):
 
     def setup_model(self):
         super().setup_model()
-        deepspeech_config = inference.Config(
-            self.args.export_path + ".pdmodel",
-            self.args.export_path + ".pdiparams")
+
+        # after paddle 3.0, support new inference interface
+        if paddlespeech.utils.satisfy_paddle_version('3.0.0-beta'):
+            model_dir = os.path.dirname(self.args.export_path)
+            model_prefix = os.path.basename(self.args.export_path)
+            deepspeech_config = inference.Config(model_dir, model_prefix)
+        else:
+            deepspeech_config = inference.Config(
+                self.args.export_path + ".pdmodel",
+                self.args.export_path + ".pdiparams")
+
         if (os.environ['CUDA_VISIBLE_DEVICES'].strip() != ''):
             deepspeech_config.enable_use_gpu(100, 0)
             deepspeech_config.enable_memory_optim()
