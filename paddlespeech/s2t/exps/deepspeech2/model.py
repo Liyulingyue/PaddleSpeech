@@ -641,6 +641,8 @@ class DeepSpeech2ExportTester(DeepSpeech2Tester):
                 self.args.export_path + ".pdmodel",
                 self.args.export_path + ".pdiparams")
 
+        deepspeech_config.disable_mkldnn()
+
         if (os.environ['CUDA_VISIBLE_DEVICES'].strip() != ''):
             deepspeech_config.enable_use_gpu(100, 0)
             deepspeech_config.enable_memory_optim()
