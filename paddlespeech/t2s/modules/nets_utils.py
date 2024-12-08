@@ -181,6 +181,7 @@ def make_pad_mask(lengths, xs=None, length_dim=-1):
     if length_dim == 0:
         raise ValueError("length_dim cannot be 0: {}".format(length_dim))
 
+    # check if lengths is 0-dim tensor, if so, add a dimension
     if lengths.ndim == 0:
         bs = paddle.shape(lengths.unsqueeze(0))
     else:
