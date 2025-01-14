@@ -74,7 +74,7 @@ class BaseEncoder(nn.Layer):
                  concat_after: bool=False,
                  static_chunk_size: int=0,
                  use_dynamic_chunk: bool=False,
-                 global_cmvn: paddle.nn.Layer=None,
+                 global_cmvn: Optional[nn.Layer]=None,
                  use_dynamic_left_chunk: bool=False,
                  max_len: int=5000):
         """
@@ -366,7 +366,7 @@ class TransformerEncoder(BaseEncoder):
             concat_after: bool=False,
             static_chunk_size: int=0,
             use_dynamic_chunk: bool=False,
-            global_cmvn: nn.Layer=None,
+            global_cmvn: Optional[nn.Layer]=None,
             use_dynamic_left_chunk: bool=False, ):
         """ Construct TransformerEncoder
         See Encoder for the meaning of each parameter.
@@ -440,7 +440,7 @@ class ConformerEncoder(BaseEncoder):
                  concat_after: bool=False,
                  static_chunk_size: int=0,
                  use_dynamic_chunk: bool=False,
-                 global_cmvn: nn.Layer=None,
+                 global_cmvn: Optional[nn.Layer]=None,
                  use_dynamic_left_chunk: bool=False,
                  positionwise_conv_kernel_size: int=1,
                  macaron_style: bool=True,
@@ -541,7 +541,7 @@ class SqueezeformerEncoder(nn.Layer):
                  adaptive_scale: bool=True,
                  activation_type: str="swish",
                  init_weights: bool=True,
-                 global_cmvn: paddle.nn.Layer=None,
+                 global_cmvn: Optional[nn.Layer]=None,
                  normalize_before: bool=False,
                  use_dynamic_chunk: bool=False,
                  concat_after: bool=False,

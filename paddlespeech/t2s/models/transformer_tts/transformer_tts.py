@@ -13,7 +13,9 @@
 # limitations under the License.
 # Modified from espnet(https://github.com/espnet/espnet)
 """Fastspeech2 related modules for paddle"""
+from optparse import Option
 from typing import Dict
+from typing import Optional
 from typing import Sequence
 from typing import Tuple
 
@@ -199,7 +201,7 @@ class TransformerTTS(nn.Layer):
             encoder_concat_after: bool=False,
             decoder_concat_after: bool=False,
             reduction_factor: int=1,
-            spk_embed_dim: int=None,
+            spk_embed_dim: Optional[int]=None,
             spk_embed_integration_type: str="add",
             use_gst: bool=False,
             gst_tokens: int=10,
