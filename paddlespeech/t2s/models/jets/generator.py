@@ -28,7 +28,6 @@ from typing import Tuple
 import numpy as np
 import paddle
 from paddle import nn
-from typeguard import typechecked
 
 from paddlespeech.t2s.models.hifigan import HiFiGANGenerator
 from paddlespeech.t2s.models.jets.alignments import AlignmentModule
