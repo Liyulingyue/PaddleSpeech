@@ -21,7 +21,7 @@ import numpy
 import paddle
 import paddle.nn.functional as F
 from paddle import nn
-from typeguard import check_argument_types
+from typeguard import typechecked
 
 from paddlespeech.t2s.modules.nets_utils import initialize
 from paddlespeech.t2s.modules.nets_utils import make_non_pad_mask
@@ -169,6 +169,7 @@ class TransformerTTS(nn.Layer):
             Number of layers to apply guided attention loss.
     """
 
+    @typechecked
     def __init__(
             self,
             # network structure related
@@ -227,7 +228,7 @@ class TransformerTTS(nn.Layer):
             num_heads_applied_guided_attn: int=2,
             num_layers_applied_guided_attn: int=2, ):
         """Initialize Transformer module."""
-        assert check_argument_types()
+
         super().__init__()
 
         # store hyperparameters
