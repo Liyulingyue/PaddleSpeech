@@ -48,7 +48,7 @@ base = [
     "matplotlib<=3.8.4",
     "nara_wpe",
     "onnxruntime>=1.11.0",
-    "opencc",
+    "opencc==1.1.6",
     "opencc-python-reimplemented",
     "pandas",
     "paddleaudio>=1.1.0",
