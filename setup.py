@@ -31,6 +31,25 @@ HERE = Path(os.path.abspath(os.path.dirname(__file__)))
 VERSION = '0.0.0'
 COMMITID = 'none'
 
+
+def determine_opencc_version():
+    # get gcc version
+    gcc_version = None
+    try:
+        output = sp.check_output(
+            ['gcc', '--version'], stderr=sp.STDOUT, text=True)
+        for line in output.splitlines():
+            if "gcc" in line:
+                gcc_version = line.split()[-1]
+    except Exception as e:
+        gcc_version = None
+
+    # determine opencc version
+    if gcc_version and gcc_version.startswith("9."):
+        return "opencc==1.1.6"  # GCC 9 need opencc==1.1.6
+    return "opencc"  # default
+
+
 base = [
     "braceexpand",
     "editdistance",
@@ -48,7 +67,7 @@ base = [
     "matplotlib<=3.8.4",
     "nara_wpe",
     "onnxruntime>=1.11.0",
-    "opencc==1.1.6",
+    determine_opencc_version(),  # opencc or opencc==1.1.6
     "opencc-python-reimplemented",
     "pandas",
     "paddleaudio>=1.1.0",
