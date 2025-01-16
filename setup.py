@@ -56,10 +56,10 @@ base = [
     "paddleslim>=2.3.4",
     "ppdiffusers>=0.9.0",
     "paddlespeech_feat",
-    "praatio>=5.0.0, <=5.1.1",
+    "praatio",
     "prettytable",
-    "pydantic>=1.10.14, <2.0",
-    "pypinyin<=0.44.0",
+    "pydantic",
+    "pypinyin",
     "pypinyin-dict",
     "python-dateutil",
     "pyworld>=0.2.12",
@@ -72,7 +72,7 @@ base = [
     "ToJyutping==0.2.1",
     "typeguard==2.13.3",
     "webrtcvad",
-    "yacs~=0.1.8",
+    "yacs",
     "zhon",
 ]
 
