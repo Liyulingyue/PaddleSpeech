@@ -56,7 +56,7 @@ base = [
     "paddleslim>=2.3.4",
     "ppdiffusers>=0.9.0",
     "paddlespeech_feat",
-    "praatio",
+    "praatio>=6.0.0",
     "prettytable",
     "pydantic",
     "pypinyin",
