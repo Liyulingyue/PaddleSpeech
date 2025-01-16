@@ -72,7 +72,7 @@ base = [
     "ToJyutping==0.2.1",
     "typeguard==2.13.3",
     "webrtcvad",
-    "yacs",
+    "yacs~=0.1.8",
     "zhon",
 ]
 
