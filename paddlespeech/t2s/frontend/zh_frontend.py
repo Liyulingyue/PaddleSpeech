@@ -173,6 +173,11 @@ class Frontend():
                 word, neutral_tone_with_five=True, style=Style.INITIALS)
             orig_finals = lazy_pinyin(
                 word, neutral_tone_with_five=True, style=Style.FINALS_TONE3)
+            # after pypinyin==0.41.0, 嗯 will be processed as "", so we need to change it to "n2"
+            en_index = [index for index, c in enumerate(word) if c == "嗯"]
+            for i in en_index:
+                orig_finals[i] = "n2"
+
             for c, v in zip(orig_initials, orig_finals):
                 if re.match(r'i\d', v):
                     if c in ['z', 'c', 's']:
