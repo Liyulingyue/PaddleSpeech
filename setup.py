@@ -33,6 +33,9 @@ COMMITID = 'none'
 
 
 def determine_python_version():
+    """
+    Determine the current python version. The function return a string such as '3.7'.
+    """
     python_version = f"{sys.version_info.major}.{sys.version_info.minor}"
     return python_version
 
