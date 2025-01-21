@@ -51,6 +51,26 @@ def determine_opencc_version():
     return "opencc"  # default
 
 
+def determine_scipy_version():
+    # get python version
+    python_version = f"{sys.version_info.major}.{sys.version_info.minor}"
+
+    # determine scipy version
+    if python_version == "3.8":
+        return "scipy>=1.4.0, <=1.12.0"  # Python3.8 need scipy>=1.4.0, <=1.12.0
+    return "scipy"  # default
+
+
+def determine_matplotlib_version():
+    # get python version
+    python_version = f"{sys.version_info.major}.{sys.version_info.minor}"
+
+    # determine matplotlib version
+    if python_version == "3.8" or python_version == "3.9":
+        return "matplotlib<=3.8.4"  # Python3.8/9 need matplotlib<=3.8.4
+    return "matplotlib"  # default
+
+
 base = [
     "braceexpand",
     "editdistance",
@@ -63,9 +83,9 @@ base = [
     # paddleaudio align with librosa==0.8.1, which need numpy==1.23.x
     "numpy==1.23.5",
     "librosa==0.8.1",
-    "scipy>=1.4.0, <=1.12.0",
+    determine_scipy_version(),  # scipy or scipy>=1.4.0, <=1.12.0
     "loguru",
-    "matplotlib<=3.8.4",
+    determine_matplotlib_version(),  # matplotlib or matplotlib<=3.8.4
     "nara_wpe",
     "onnxruntime>=1.11.0",
     determine_opencc_version(),  # opencc or opencc==1.1.6
@@ -76,9 +96,9 @@ base = [
     "paddleslim>=2.3.4",
     "ppdiffusers>=0.9.0",
     "paddlespeech_feat",
-    "praatio>=5.0.0, <=5.1.1",
+    "praatio>=6.0.0",
     "prettytable",
-    "pydantic>=1.10.14, <2.0",
+    "pydantic",
     "pypinyin",
     "pypinyin-dict",
     "python-dateutil",
@@ -92,7 +112,7 @@ base = [
     "ToJyutping",
     "typeguard",
     "webrtcvad",
-    "yacs~=0.1.8",
+    "yacs>=0.1.8",
     "zhon",
 ]
 
