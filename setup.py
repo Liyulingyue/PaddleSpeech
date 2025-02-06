@@ -54,8 +54,8 @@ def determine_opencc_version():
 
     # determine opencc version
     if gcc_version:
-        if int(gcc_version.split(".")[0]) <= 9:
-            return "opencc==1.1.6"  # GCC<=9 need opencc==1.1.6
+        if int(gcc_version.split(".")[0]) < 8:
+            return "opencc==1.1.6"  # GCC<8 need opencc==1.1.6
     return "opencc"  # default
 
 
