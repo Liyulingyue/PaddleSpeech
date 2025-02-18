@@ -88,9 +88,8 @@ base = [
     "hyperpyyaml",
     "inflect",
     "jsonlines",
-    # paddleaudio align with librosa==0.8.1, which need numpy==1.23.x
-    "numpy==1.23.5",
-    "librosa==0.8.1",
+    "numpy",
+    "librosa",
     determine_scipy_version(),  # scipy or scipy>=1.4.0, <=1.12.0
     "loguru",
     determine_matplotlib_version(),  # matplotlib or matplotlib<=3.8.4
