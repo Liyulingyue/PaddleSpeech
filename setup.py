@@ -88,7 +88,7 @@ base = [
     "hyperpyyaml",
     "inflect",
     "jsonlines",
-    "numpy",
+    "numpy>=2.0.0",
     "librosa",
     determine_scipy_version(),  # scipy or scipy>=1.4.0, <=1.12.0
     "loguru",
