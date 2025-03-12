@@ -1,5 +1,5 @@
 FROM registry.baidubce.com/paddlepaddle/paddle:3.0.0b1
-LABEL maintainer="paddlesl@baidu.com"
+LABEL maintainer="ext_paddle_oss@baidu.com"
 
 RUN apt-get update \
   && apt-get install libsndfile-dev libsndfile1 \
