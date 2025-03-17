@@ -2,8 +2,8 @@ FROM registry.baidubce.com/paddlepaddle/paddle:3.0.0b1
 LABEL maintainer="ext_paddle_oss@baidu.com"
 
 RUN apt-get update \
-  && apt-get install libsndfile-dev libsndfile1 \
-  && apt-get clean \
+  && apt-get install libsndfile-dev libsndfile1 -y \
+  && apt-get clean -y \
   && rm -rf /var/lib/apt/lists/*
 
 RUN git clone --depth 1 https://github.com/PaddlePaddle/PaddleSpeech.git /home/PaddleSpeech  
